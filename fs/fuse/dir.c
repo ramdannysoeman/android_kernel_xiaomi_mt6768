@@ -232,7 +232,11 @@ static int fuse_dentry_revalidate(struct dentry *entry, unsigned int flags)
 			spin_unlock(&fc->lock);
 		}
 		kfree(forget);
+<<<<<<< HEAD
 		if ((ret == -ENOMEM)||(ret==-EINTR))
+=======
+		if (ret == -ENOMEM || ret == -EINTR)
+>>>>>>> v4.14.323
 			goto out;
 		if (ret || fuse_invalid_attr(&outarg.attr) ||
 		    (outarg.attr.mode ^ inode->i_mode) & S_IFMT)
